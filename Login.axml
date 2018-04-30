@@ -8,7 +8,9 @@
         android:src="@android:drawable/ic_menu_gallery"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/IVlogo" />
+        android:id="@+id/IVlogo"
+        android:layout_gravity="top"
+        android:layout_marginTop="-19dp" />
     <ImageView
         android:src="@android:drawable/ic_menu_gallery"
         android:layout_width="match_parent"
@@ -34,7 +36,8 @@
         android:layout_marginRight="75dp"
         android:textColor="@android:color/black"
         android:textColorHint="#616161"
-        android:hint="Password..." />
+        android:hint="Password..."
+        android:inputType="textPassword" />
     <Button
         android:text="Login"
         android:layout_width="wrap_content"

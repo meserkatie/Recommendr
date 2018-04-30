@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#e0e0e0">
+    <ImageView
+        android:src="@android:drawable/ic_menu_gallery"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/IVlogo"
+        android:layout_gravity="top"
+        android:layout_marginTop="-19dp" />
+    <Toolbar
+        android:background="@android:color/white"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/toolbarNav">
+        <ImageButton
+            android:src="@android:drawable/ic_menu_gallery"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/btnProfile"
+            android:background="@android:color/white" />
+        <ImageButton
+            android:src="@android:drawable/ic_menu_gallery"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@android:color/white"
+            android:id="@+id/btnAdd" />
+        <ImageButton
+            android:src="@android:drawable/ic_menu_gallery"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@android:color/white"
+            android:id="@+id/btnHome" />
+        <ImageButton
+            android:src="@android:drawable/ic_menu_gallery"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@android:color/white"
+            android:id="@+id/btnSearch" />
+        <ImageButton
+            android:src="@android:drawable/ic_menu_gallery"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/btnLogout"
+            android:layout_marginLeft="5dp"
+            android:background="@android:color/white"
+            android:layout_marginRight="10dp" />
+    </Toolbar>
+    <TextView
+        android:text="Filter"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/txtFilter"
+        android:textColor="@android:color/black"
+        android:layout_marginLeft="10dp"
+        android:textStyle="bold"
+        android:layout_marginTop="10dp" />
+    <LinearLayout
+        android:orientation="horizontal"
+        android:minWidth="25px"
+        android:minHeight="25px"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/linearLayout1"
+        android:layout_marginTop="10dp">
+        <CheckBox
+            android:text="Books"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:id="@+id/cbBooks"
+            android:textColor="@android:color/black"
+            android:checked="true"
+            android:layout_marginLeft="20dp"
+            android:buttonTint="#009688" />
+        <CheckBox
+            android:text="Movies"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:id="@+id/cbMovies"
+            android:textColor="@android:color/black"
+            android:checked="true"
+            android:layout_marginLeft="5dp"
+            android:buttonTint="#009688" />
+        <CheckBox
+            android:text="Music"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:id="@+id/cbMusic"
+            android:textColor="@android:color/black"
+            android:checked="true"
+            android:layout_marginLeft="5dp"
+            android:buttonTint="#009688" />
+        <CheckBox
+            android:text="TV Shows"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:id="@+id/cbTV"
+            android:textColor="@android:color/black"
+            android:checked="true"
+            android:layout_marginLeft="5dp"
+            android:buttonTint="#009688"
+            android:layout_gravity="center"
+            android:gravity="center" />
+    </LinearLayout>
+    <CheckBox
+        android:text="Include Own Recommendations"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/cbOwnOption"
+        android:textColor="@android:color/black"
+        android:checked="true"
+        android:buttonTint="#009688"
+        android:layout_gravity="center"
+        android:layout_marginTop="15dp" />
+    <Button
+        android:textAllCaps="false"
+        android:text="Apply Filters"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:background="#009688"
+        android:textColor="@android:color/white"
+        android:id="@+id/btnApply"
+        android:layout_gravity="center"
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp"
+        android:layout_marginTop="15dp" />
+    <ListView
+        android:minWidth="25px"
+        android:minHeight="25px"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/lvFeed" />
+</LinearLayout>

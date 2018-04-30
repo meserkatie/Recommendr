@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 
@@ -9,10 +10,11 @@ using Android.OS;
 using Android.Runtime;
 using Android.Views;
 using Android.Widget;
+using SQLite;
 
 namespace Recommendr.Activities
-{ 
-    [Activity(Label = "Login to Account", MainLauncher = true, Icon = "@mipmap/ic_action_r")]
+{
+    [Activity(Label = "Recommendr", MainLauncher = true, Icon = "@mipmap/ic_action_r")]
     public class LoginActivity : Activity
     {
         //Step 2--Declare Class Variables
@@ -28,6 +30,7 @@ namespace Recommendr.Activities
             base.OnCreate(savedInstanceState);
             //Step 1--Set our view from the "main" layout resource
             SetContentView(Resource.Layout.Login);
+            ActionBar.Hide();
 
             //Step 3--Find Controls
             IVlogo = FindViewById<ImageView>(Resource.Id.IVlogo);
@@ -41,11 +44,49 @@ namespace Recommendr.Activities
 
             //Step 4--Event Handler(s)
             btnSignUp.Click += BtnSignUp_Click;
+            btnLogin.Click += BtnLogin_Click;
+            CreateDB();
+        }
+
+        private void BtnLogin_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                string dpPath = Path.Combine(System.Environment.GetFolderPath(System.Environment.SpecialFolder.Personal), "user.db3"); //Call Database  
+                var db = new SQLiteConnection(dpPath);
+                var data = db.Table<LoginTable>(); //Call Table  
+                var data1 = data.Where(x => x.Username == txtUsername.Text && x.Password == txtPassword.Text).FirstOrDefault(); //Linq Query  
+                if (data1 != null)
+                {
+                    Toast.MakeText(this, "Login Success", ToastLength.Short).Show();
+                    StartActivity(typeof(HomeActivity));
+                }
+                else
+                {
+                    Toast.MakeText(this, "Invalid Credentials", ToastLength.Short).Show();
+                    txtUsername.Text = string.Empty;
+                    txtPassword.Text = string.Empty;
+                }
+            }
+            catch (Exception ex)
+            {
+                Toast.MakeText(this, ex.ToString(), ToastLength.Short).Show();
+            }
         }
 
         private void BtnSignUp_Click(object sender, EventArgs e)
         {
             StartActivity(typeof(SignUpActivity));
+        }
+
+        public string CreateDB()
+        {
+            var output = "";
+            output += "Creating Database if it does not exist";
+            string dpPath = Path.Combine(System.Environment.GetFolderPath(System.Environment.SpecialFolder.Personal), "user.db3"); //Create New Database  
+            var db = new SQLiteConnection(dpPath);
+            output += "\n Database Created....";
+            return output;
         }
     }
 }

@@ -9,37 +9,33 @@ using Android.OS;
 using Android.Runtime;
 using Android.Views;
 using Android.Widget;
+using SQLite;
 
 namespace Recommendr
 {
-    class Recommendation
+    public class Recommendation
     {
+        [PrimaryKey, AutoIncrement, Column("_Id")]
         public int id { get; set; }
+        [MaxLength(25)]
 
         public string recommendationType { get; set; }
 
         public string title { get; set; }
 
-        public List<Genre> genre = new List<Genre>();
+        public string genre { get; set; }
 
-        public String rating { get; set; }
+        public string rating { get; set; }
 
-        public String additionalComments { get; set; }
+        public string additionalComments { get; set; }
 
-        public void AddGenre(Genre newGenre)
-        {
-            genre.Add(newGenre);
-        }
+        public string author { get; set; }
 
-        public void RemoveGenre(Genre remGenre)
-        {
-            genre.Remove(remGenre);
-        }
+        public string recAuthor { get; set; }
 
-        public List<Genre> GetGenres()
-        {
-            return genre;
-        }
+        public DateTime postDate { get; set; }
+
+        public Boolean toDo { get; set; }
 
     }
 }

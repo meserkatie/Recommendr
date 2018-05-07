@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 
@@ -9,20 +10,28 @@ using Android.OS;
 using Android.Runtime;
 using Android.Views;
 using Android.Widget;
+using SQLite;
 
 namespace Recommendr
 {
-    class MyListViewAdapter : BaseAdapter<User>
+    class MyListViewAdapter : BaseAdapter<LoginTable>
     {
-        private List<User> users;
+        private List<LoginTable> users;
         private Context myContext;
         private int rowLayout;
+        private TextView txtRowUN;
+        private string currentUsername;
+        private string friendUsername;
+        private LoginTable currentUser;
+        private int curPos;
 
-        public MyListViewAdapter(Context context, int mRowLayout, List<User> items)
+        public MyListViewAdapter(Context context, int mRowLayout, List<LoginTable> items, LoginTable currentUser)
         {
             users = items;
             myContext = context;
             rowLayout = mRowLayout;
+            currentUsername = currentUser.username;
+            this.currentUser = currentUser;
         }
         public override int Count
         {
@@ -35,7 +44,7 @@ namespace Recommendr
         }
 
 
-        public override User this[int position]
+        public override LoginTable this[int position]
         {
             get { return users[position]; }
         }
@@ -48,18 +57,54 @@ namespace Recommendr
             {
                 row = LayoutInflater.From(myContext).Inflate(Resource.Layout.ListView_FindUsers, null, false);
             }
+            curPos = position;
 
-            TextView txtRowUN = row.FindViewById<TextView>(Resource.Id.txtRowUN);
-            txtRowUN.Text = users[position].Username;
+            txtRowUN = row.FindViewById<TextView>(Resource.Id.txtRowUN);
+            txtRowUN.Text = users[position].username;
+            friendUsername = txtRowUN.Text;
 
             TextView txtNoRec = row.FindViewById<TextView>(Resource.Id.txtRowNoRec);
-            txtNoRec.Text = users[position].RecommendationNum.ToString();
+            txtNoRec.Text = users[position].getRecommendationNum().ToString();
 
             TextView txtRowFoll = row.FindViewById<TextView>(Resource.Id.txtRowFoll);
-            txtRowFoll.Text = users[position].NoOfFollowers.ToString();
+            txtRowFoll.Text = users[position].noOfFollowers.ToString();
 
+         //   Button btnFollow = row.FindViewById<Button>(Resource.Id.btnFollow);
+//btnFollow.Click += BtnFollow_Click;
+
+            
+
+         //   Button btnViewProfile = row.FindViewById<Button>(Resource.Id.btnViewProfile);
+           // btnViewProfile.Click += BtnViewProfile_Click;
 
             return row;
+        }
+
+        //private void BtnViewProfile_Click(object sender, EventArgs e)
+        //{
+        //    throw new NotImplementedException();
+        //}
+
+        private void BtnFollow_Click(object sender, EventArgs e)
+        {
+
+        //    string dpPath = Path.Combine(System.Environment.GetFolderPath(System.Environment.SpecialFolder.Personal), "user.db3");
+        //    var db = new SQLiteConnection(dpPath);
+        //    db.CreateTable<Friendship>();
+            
+        //    Friendship newFriendship = new Friendship();
+        //    newFriendship.friendFrom = currentUsername;
+        //    newFriendship.friendTo = users[curPos].username;
+        //    newFriendship.friendSince = DateTime.Now;
+
+        //    db.Insert(newFriendship);
+
+        ////    LoginTable tbl = new LoginTable();
+        //  //  tbl.Id = currentUser.Id;
+        //   // tbl.noOfFollowers = currentUser.noOfFollowers + 1;
+        //   // db.Update(tbl);
+
+        //    Toast.MakeText(myContext, "Successfully Followed", ToastLength.Short).Show();
         }
     }
 }

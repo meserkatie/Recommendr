@@ -9,7 +9,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/linearLayout1"
-        android:paddingTop="5dp">
+        android:paddingTop="5dp"
+        android:layout_marginTop="5dp">
         <TextView
             android:text="Username: "
             android:textAppearance="?android:attr/textAppearanceMedium"
@@ -69,8 +70,9 @@
             android:layout_height="match_parent"
             android:id="@+id/txtRowFoll" />
     </LinearLayout>
-    <LinearLayout
+<!--<LinearLayout
         android:orientation="horizontal"
+        android:weightSum="100"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/linearLayout4"
@@ -78,22 +80,25 @@
         android:layout_marginBottom="10dp">
         <Button
             android:text="View Profile"
+            android:layout_weight="20"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:textColor="@android:color/white"
             android:background="#009688"
             android:id="@+id/btnViewProfile"
-            android:layout_marginLeft="60dp"
             android:paddingLeft="10dp"
-            android:paddingRight="10dp" />
+            android:paddingRight="10dp"
+            android:layout_marginLeft="60dp" />
         <Button
             android:text="Follow"
+            android:layout_weight="20"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:textColor="@android:color/white"
             android:background="#009688"
             android:id="@+id/btnFollow"
+            android:layout_gravity="center_vertical"
             android:layout_marginLeft="50dp"
             android:layout_marginRight="50dp" />
-    </LinearLayout>
+    </LinearLayout>-->
 </LinearLayout>

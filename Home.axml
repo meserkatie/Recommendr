@@ -11,44 +11,83 @@
         android:id="@+id/IVlogo"
         android:layout_gravity="top"
         android:layout_marginTop="-19dp" />
-    <Toolbar
-        android:background="@android:color/white"
+    <LinearLayout
+        android:orientation="horizontal"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/toolbarNav">
-        <ImageButton
-            android:src="@android:drawable/ic_menu_gallery"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/btnProfile"
-            android:background="@android:color/white" />
-        <ImageButton
-            android:src="@android:drawable/ic_menu_gallery"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:background="@android:color/white"
-            android:id="@+id/btnAdd" />
-        <ImageButton
-            android:src="@android:drawable/ic_menu_gallery"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:background="@android:color/white"
-            android:id="@+id/btnHome" />
-        <ImageButton
-            android:src="@android:drawable/ic_menu_gallery"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:background="@android:color/white"
-            android:id="@+id/btnSearch" />
-        <ImageButton
-            android:src="@android:drawable/ic_menu_gallery"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/btnLogout"
-            android:layout_marginLeft="5dp"
-            android:background="@android:color/white"
-            android:layout_marginRight="10dp" />
-    </Toolbar>
+        android:layout_height="75dp"
+        android:layout_marginTop="-18dp"
+        android:weightSum="100">
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_weight="20"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:id="@+id/linearLayout1"
+            android:minWidth="25px"
+            android:minHeight="25px">
+            <ImageButton
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/btnProfile"
+                android:background="@android:color/white" />
+        </LinearLayout>
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_weight="20"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:id="@+id/linearLayout2"
+            android:minWidth="25px"
+            android:minHeight="25px">
+            <ImageButton
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/btnAdd"
+                android:background="@android:color/white" />
+        </LinearLayout>
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_weight="20"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:id="@+id/linearLayout3"
+            android:minWidth="25px"
+            android:minHeight="25px">
+            <ImageButton
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/btnHome"
+                android:background="@android:color/white" />
+        </LinearLayout>
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_weight="20"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:id="@+id/linearLayout4"
+            android:minWidth="25px"
+            android:minHeight="25px">
+            <ImageButton
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/btnSearch"
+                android:background="@android:color/white" />
+        </LinearLayout>
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_weight="20"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:id="@+id/linearLayout5"
+            android:minWidth="25px"
+            android:minHeight="25px">
+            <ImageButton
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/btnLogout"
+                android:background="@android:color/white" />
+        </LinearLayout>
+    </LinearLayout>
     <TextView
         android:text="Filter"
         android:textAppearance="?android:attr/textAppearanceMedium"
@@ -58,7 +97,7 @@
         android:textColor="@android:color/black"
         android:layout_marginLeft="10dp"
         android:textStyle="bold"
-        android:layout_marginTop="10dp" />
+        android:layout_marginTop="5dp" />
     <LinearLayout
         android:orientation="horizontal"
         android:minWidth="25px"
@@ -107,15 +146,24 @@
             android:gravity="center" />
     </LinearLayout>
     <CheckBox
-        android:text="Include Own Recommendations"
+        android:text="Exclude Own Recommendations"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/cbOwnOption"
         android:textColor="@android:color/black"
-        android:checked="true"
         android:buttonTint="#009688"
         android:layout_gravity="center"
-        android:layout_marginTop="15dp" />
+        android:layout_marginTop="5dp" />
+    <CheckBox
+        android:text="Show Only My Recommendations"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/cbOnlyOption"
+        android:textColor="@android:color/black"
+        android:checked="false"
+        android:buttonTint="#009688"
+        android:layout_gravity="center"
+        android:layout_marginTop="5dp" />
     <Button
         android:textAllCaps="false"
         android:text="Apply Filters"
@@ -134,5 +182,6 @@
         android:minHeight="25px"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:id="@+id/lvFeed" />
+        android:id="@+id/lvFeed"
+        android:layout_marginTop="10dp" />
 </LinearLayout>

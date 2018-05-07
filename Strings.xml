@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+  <string name="app_name">Recommendr</string>
+
+  <string-array name="dropdown_type">
+    <item>Select a Type...</item>
+    <item>Book</item>
+    <item>Movie</item>
+    <item>Music</item>
+    <item>TV Show</item>
+    
+  </string-array>
+
+  <string-array name="dropdown_rating">
+    <item>Select a Rating...</item>
+    <item>Highly Recommend</item>
+    <item>Recommend</item>
+    <item>Meh</item>
+    <item>Do Not Recommend</item>
+  </string-array>
+
+  <color name="RED">#f44336</color>
+  <color name="YELLOW">#ffc107</color>
+  
+</resources>

@@ -1,68 +1,68 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
+﻿//using System;
+//using System.Collections.Generic;
+//using System.Linq;
+//using System.Text;
 
-using Android.App;
-using Android.Content;
-using Android.OS;
-using Android.Runtime;
-using Android.Views;
-using Android.Widget;
+//using Android.App;
+//using Android.Content;
+//using Android.OS;
+//using Android.Runtime;
+//using Android.Views;
+//using Android.Widget;
 
-namespace Recommendr
-{
-    class User
-    { 
-        public string Username { get; set; }
+//namespace Recommendr
+//{
+//    public class User
+//    { 
+//        public string username { get; set; }
 
-        public string Email { get; set; }
+//        public string email { get; set; }
 
-        public string Password { get; set; }
+//        public string password { get; set; }
 
-        public DateTime Membersince { get; set; }
+//        public DateTime membersince { get; set; }
 
-        public int RecommendationNum { get; set; }
+//        public int recommendationNum { get; set; }
 
-        public int NoOfFollowers { get; set; }
+//        public int noOfFollowers { get; set; }
 
-        public List<User> Followers = new List<User>();
+//        public List<User> followers = new List<User>();
 
-        public List<User> Following = new List<User>();
+//        public List<User> following = new List<User>();
 
-        public List<Recommendation> ToDo = new List<Recommendation>();
+//        public List<Recommendation> toDo = new List<Recommendation>();
 
-        public List<Recommendation> MyRecommendations = new List<Recommendation>();
+//        public List<Recommendation> myRecommendations = new List<Recommendation>();
 
-        public void AddFollower(User newFollower)
-        {
-            Followers.Add(newFollower);
-        }
+//        public void AddFollower(User newFollower)
+//        {
+//            followers.Add(newFollower);
+//        }
 
-        public List<User> GetFollowers()
-        {
-            return Followers;
-        }
+//        public List<User> GetFollowers()
+//        {
+//            return followers;
+//        }
 
-        public void AddFollowing(User newFollowing)
-        {
-            Following.Add(newFollowing);
-        }
+//        public void AddFollowing(User newFollowing)
+//        {
+//            following.Add(newFollowing);
+//        }
 
-        public List<User> GetFollowing()
-        {
-            return Following;
-        }
+//        public List<User> GetFollowing()
+//        {
+//            return following;
+//        }
 
-        public void AddToDo(Recommendation newRec)
-        {
-            ToDo.Add(newRec);
-        }
+//        public void AddToDo(Recommendation newRec)
+//        {
+//            toDo.Add(newRec);
+//        }
 
-        public void AddMyRecommendations(Recommendation newRec)
-        {
-            MyRecommendations.Add(newRec);
-            RecommendationNum++;
-        }
-    }
-}
+//        public void AddMyRecommendations(Recommendation newRec)
+//        {
+//            myRecommendations.Add(newRec);
+//            recommendationNum++;
+//        }
+//    }
+//}

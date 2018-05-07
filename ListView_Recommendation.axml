@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@android:color/white">
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/linearLayout1">
+        <ImageView
+            android:src="@android:drawable/ic_menu_gallery"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:id="@+id/ivIcon"
+            android:layout_marginLeft="10dp" />
+        <TextView
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:id="@+id/txtRowUsername"
+            android:textColor="@android:color/black"
+            android:gravity="center"
+            android:layout_marginLeft="75dp" />
+    </LinearLayout>
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/linearLayout2">
+        <TextView
+            android:text="Title:"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:id="@+id/txtTitle"
+            android:textColor="@android:color/black"
+            android:layout_marginLeft="35dp"
+            android:textStyle="bold" />
+        <TextView
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:id="@+id/txtRowTitleInput"
+            android:textColor="@android:color/black"
+            android:layout_marginLeft="10dp" />
+    </LinearLayout>
+    <LinearLayout
+        android:orientation="horizontal"
+        android:minWidth="25px"
+        android:minHeight="25px"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/linearLayout3"
+        android:layout_marginTop="5dp">
+        <TextView
+            android:text="Author/Artist:"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:id="@+id/txtAuthor"
+            android:textColor="@android:color/black"
+            android:layout_marginLeft="35dp"
+            android:textStyle="bold" />
+        <TextView
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:id="@+id/txtRowAuthorInput"
+            android:textColor="@android:color/black"
+            android:layout_marginLeft="10dp" />
+    </LinearLayout>
+    <LinearLayout
+        android:orientation="horizontal"
+        android:minWidth="25px"
+        android:minHeight="25px"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/linearLayout4"
+        android:layout_marginTop="5dp">
+        <TextView
+            android:text="Genre(s):"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:id="@+id/txtGenre"
+            android:textColor="@android:color/black"
+            android:layout_marginLeft="35dp"
+            android:textStyle="bold" />
+        <TextView
+            android:inputType="textMultiLine"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:id="@+id/txtRowGenreInput"
+            android:textColor="@android:color/black"
+            android:layout_marginLeft="10dp" />
+    </LinearLayout>
+    <TextView
+        android:text="Additional Comments:"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/txtAddCom"
+        android:textColor="@android:color/black"
+        android:layout_marginLeft="35dp"
+        android:textStyle="bold"
+        android:layout_marginTop="5dp" />
+    <TextView
+        android:inputType="textMultiLine"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/txtRowComments"
+        android:textColor="@android:color/black"
+        android:layout_marginLeft="35dp"
+        android:layout_marginRight="40dp"
+        android:layout_marginTop="5dp" />
+    <TextView
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/txtRowRating"
+        android:textColor="@android:color/black"
+        android:textStyle="bold"
+        android:layout_marginTop="5dp"
+        android:layout_marginBottom="15dp"
+        android:gravity="center"
+        android:layout_gravity="center" />
+    <Button
+        android:text="To-Do"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/btnToDo"
+        android:gravity="center"
+        android:background="#009688"
+        android:textColor="@android:color/white"
+        android:layout_marginLeft="125dp"
+        android:layout_marginRight="125dp"
+        android:textSize="15dp"
+        android:layout_marginBottom="10dp" />
+</LinearLayout>

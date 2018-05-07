@@ -88,29 +88,83 @@
                 android:background="@android:color/white" />
         </LinearLayout>
     </LinearLayout>
+    <TextView
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:textColor="#009688"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/txtUsernameInput"
+        android:textStyle="bold"
+        android:textSize="30dp"
+        android:gravity="center"
+        android:layout_gravity="center" />
     <LinearLayout
         android:orientation="horizontal"
+        android:minWidth="25px"
+        android:minHeight="25px"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/linearLayout1"
-        android:layout_marginTop="15dp">
+        android:id="@+id/linearLayout7">
         <TextView
-            android:text="Type:"
+            android:text="Email: "
             android:textAppearance="?android:attr/textAppearanceMedium"
+            android:textColor="@android:color/black"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
-            android:id="@+id/txtType"
-            android:textColor="@android:color/black"
-            android:textStyle="bold"
-            android:layout_marginLeft="40dp" />
-        <Spinner
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:entries="@array/dropdown_type"
-            android:id="@+id/spnrType"
+            android:id="@+id/txtEmail"
             android:layout_marginLeft="20dp"
-            android:background="@android:color/white"
-            android:layout_marginRight="40dp" />
+            android:textStyle="bold" />
+        <TextView
+            android:text=""
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:textColor="@android:color/black"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:id="@+id/txtEmailInput"
+            android:layout_marginLeft="5dp" />
+    </LinearLayout>
+    <TextView
+        android:text="Following: "
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:textColor="@android:color/black"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/txtFollowNum"
+        android:layout_marginLeft="20dp"
+        android:textStyle="bold" />
+    <TextView
+        android:text="Followed By: "
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:textColor="@android:color/black"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/txtFollowerNum"
+        android:layout_marginLeft="20dp"
+        android:textStyle="bold" />
+    <LinearLayout
+        android:orientation="horizontal"
+        android:minWidth="25px"
+        android:minHeight="25px"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/linearLayout8">
+        <TextView
+            android:text="Member Since: "
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:textColor="@android:color/black"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:id="@+id/txtDate"
+            android:layout_marginLeft="20dp"
+            android:textStyle="bold" />
+        <TextView
+            android:text=""
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:textColor="@android:color/black"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:id="@+id/txtDateInput"
+            android:layout_marginLeft="5dp" />
     </LinearLayout>
     <LinearLayout
         android:orientation="horizontal"
@@ -118,149 +172,61 @@
         android:minHeight="25px"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/linearLayout2"
-        android:layout_marginTop="15dp">
+        android:id="@+id/linearLayout9">
         <TextView
-            android:text="Title:"
+            android:text="Number of Recommendations: "
             android:textAppearance="?android:attr/textAppearanceMedium"
+            android:textColor="@android:color/black"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
-            android:id="@+id/txtTitle"
-            android:textColor="@android:color/black"
-            android:textStyle="bold"
-            android:layout_marginLeft="40dp"
-            android:gravity="center" />
-        <EditText
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:id="@+id/txtTitleInput"
+            android:id="@+id/txtRecNum"
             android:layout_marginLeft="20dp"
+            android:textStyle="bold" />
+        <TextView
+            android:text=""
+            android:textAppearance="?android:attr/textAppearanceMedium"
             android:textColor="@android:color/black"
-            android:layout_marginRight="40dp"
-            android:background="@android:color/white" />
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:id="@+id/txtRecNumInput"
+            android:layout_marginLeft="5dp" />
     </LinearLayout>
     <LinearLayout
-        android:orientation="horizontal"
-        android:minWidth="25px"
-        android:minHeight="25px"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/linearLayout11"
-        android:layout_marginTop="15dp">
-        <TextView
-            android:text="Author/Artist:"
-            android:textAppearance="?android:attr/textAppearanceMedium"
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:id="@+id/txtAuthor"
-            android:textColor="@android:color/black"
-            android:textStyle="bold"
-            android:layout_marginLeft="40dp"
-            android:gravity="center" />
-        <EditText
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:id="@+id/txtAuthorInput"
-            android:layout_marginLeft="20dp"
-            android:textColor="@android:color/black"
-            android:layout_marginRight="40dp"
-            android:background="@android:color/white" />
-    </LinearLayout>
-    <LinearLayout
-        android:orientation="horizontal"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/linearLayout12"
-        android:layout_marginTop="15dp">
-        <TextView
-            android:text="Genre(s):"
-            android:textAppearance="?android:attr/textAppearanceMedium"
-            android:id="@+id/txtGenre"
-            android:textColor="@android:color/black"
-            android:textStyle="bold"
-            android:gravity="center"
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:layout_marginLeft="40dp" />
-        <EditText
-            android:inputType="textMultiLine"
+        android:layout_gravity="center"
+        android:minWidth="25px"
+        android:minHeight="25px">
+        <LinearLayout
+            android:orientation="horizontal"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:id="@+id/txtGenreInput"
-            android:layout_marginLeft="40dp"
-            android:layout_marginRight="40dp"
-            android:textColor="@android:color/black"
-            android:background="@android:color/white" />
-    </LinearLayout>
-    <LinearLayout
-        android:orientation="horizontal"
-        android:minWidth="25px"
-        android:minHeight="25px"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/linearLayout13"
-        android:layout_marginTop="15dp">
-        <TextView
-            android:text="Rating:"
-            android:textAppearance="?android:attr/textAppearanceMedium"
-            android:id="@+id/txtRating"
-            android:textColor="@android:color/black"
-            android:textStyle="bold"
-            android:gravity="center"
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:layout_marginLeft="40dp" />
-        <Spinner
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:entries="@array/dropdown_rating"
-            android:id="@+id/spnrRating"
-            android:layout_marginLeft="20dp"
-            android:background="@android:color/white"
-            android:layout_marginRight="40dp" />
-    </LinearLayout>
-    <TextView
-        android:text="Additional Comments:"
-        android:textAppearance="?android:attr/textAppearanceMedium"
-        android:id="@+id/txtAddComment"
-        android:textColor="@android:color/black"
-        android:textStyle="bold"
-        android:gravity="center"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="40dp"
-        android:layout_marginTop="15dp" />
-    <EditText
-        android:inputType="textMultiLine"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/txtComment"
-        android:layout_marginLeft="40dp"
-        android:layout_marginRight="40dp"
-        android:textColor="@android:color/black"
-        android:background="@android:color/white" />
-    <LinearLayout
-        android:orientation="horizontal"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/linearLayout14"
-        android:layout_marginTop="25dp">
-        <Button
-            android:text="Clear"
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:id="@+id/btnClear"
-            android:background="#FF1744"
-            android:textColor="@android:color/white"
-            android:layout_marginLeft="60dp" />
-        <Button
-            android:text="Submit"
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:id="@+id/btnSubmit"
-            android:background="#009688"
-            android:textColor="@android:color/white"
-            android:layout_marginRight="40dp"
-            android:layout_marginLeft="100dp" />
+            android:id="@+id/linearLayout12"
+            android:layout_marginTop="20dp"
+            android:layout_marginBottom="20dp">
+            <Button
+                android:text="Follow"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:id="@+id/btnFollow"
+                android:textColor="@android:color/white"
+                android:background="#009688"
+                android:layout_marginLeft="25dp"
+                android:layout_marginRight="5dp"
+                android:paddingLeft="5dp"
+                android:paddingRight="5dp" />
+            <Button
+                android:text="Back"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:textColor="@android:color/white"
+                android:background="#009688"
+                android:id="@+id/btnBack"
+                android:layout_marginLeft="5dp"
+                android:layout_marginRight="5dp"
+                android:paddingRight="5dp"
+                android:paddingLeft="5dp" />
+        </LinearLayout>
     </LinearLayout>
 </LinearLayout>

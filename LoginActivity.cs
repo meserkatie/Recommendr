@@ -10,6 +10,7 @@ using Android.OS;
 using Android.Runtime;
 using Android.Views;
 using Android.Widget;
+using Newtonsoft.Json;
 using SQLite;
 
 namespace Recommendr.Activities
@@ -29,8 +30,9 @@ namespace Recommendr.Activities
         {
             base.OnCreate(savedInstanceState);
             //Step 1--Set our view from the "main" layout resource
-            SetContentView(Resource.Layout.Login);
             ActionBar.Hide();
+            SetContentView(Resource.Layout.Login);
+            
 
             //Step 3--Find Controls
             IVlogo = FindViewById<ImageView>(Resource.Id.IVlogo);
@@ -55,11 +57,31 @@ namespace Recommendr.Activities
                 string dpPath = Path.Combine(System.Environment.GetFolderPath(System.Environment.SpecialFolder.Personal), "user.db3"); //Call Database  
                 var db = new SQLiteConnection(dpPath);
                 var data = db.Table<LoginTable>(); //Call Table  
-                var data1 = data.Where(x => x.Username == txtUsername.Text && x.Password == txtPassword.Text).FirstOrDefault(); //Linq Query  
+                var data1 = data.Where(x => x.username == txtUsername.Text && x.password == txtPassword.Text).FirstOrDefault(); //Linq Query  
                 if (data1 != null)
                 {
                     Toast.MakeText(this, "Login Success", ToastLength.Short).Show();
-                    StartActivity(typeof(HomeActivity));
+
+                    LoginTable currentUser = new LoginTable();
+
+                    var userList = db.Table<LoginTable>();
+                    foreach (var user in userList)
+                    {
+                        if(user.username != null)
+                        {
+                            if (user.username.Equals(txtUsername.Text))
+                            {
+                                currentUser = user;
+                                break;
+                            }
+                        }
+                        
+                    }
+
+                    Intent intent = new Intent(this, typeof(HomeActivity));
+                    intent.PutExtra("CurrentUser", JsonConvert.SerializeObject(currentUser));
+                    this.StartActivity(intent);
+
                 }
                 else
                 {
@@ -81,11 +103,16 @@ namespace Recommendr.Activities
 
         public string CreateDB()
         {
+
             var output = "";
             output += "Creating Database if it does not exist";
             string dpPath = Path.Combine(System.Environment.GetFolderPath(System.Environment.SpecialFolder.Personal), "user.db3"); //Create New Database  
             var db = new SQLiteConnection(dpPath);
             output += "\n Database Created....";
+
+          //  db.DeleteAll<LoginTable>();
+          //  db.DeleteAll<Friendship>();
+         //   db.DeleteAll<Recommendation>();
             return output;
         }
     }

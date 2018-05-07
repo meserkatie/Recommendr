@@ -116,9 +116,11 @@ namespace Recommendr.Activities
                 db.CreateTable<LoginTable>();
                 LoginTable tbl = new LoginTable();
 
+                db.CreateTable<Recommendation>();
+
                 //Check to see if username is already in database
                 var data = db.Table<LoginTable>(); //Call Table  
-                var data1 = data.Where(x => x.Username == txtUsername.Text).FirstOrDefault(); //Linq Query
+                var data1 = data.Where(x => x.username == txtUsername.Text).FirstOrDefault(); //Linq Query
                 if(data1 != null)
                 {
                     Toast.MakeText(this, "Username taken. Please choose another.", ToastLength.Short).Show();
@@ -126,7 +128,7 @@ namespace Recommendr.Activities
                 }
 
                 //Check to see if email is already in database
-                data1 = data.Where(x => x.Email == txtEmail.Text).FirstOrDefault(); //Linq Query
+                data1 = data.Where(x => x.email == txtEmail.Text).FirstOrDefault(); //Linq Query
                 if (data1 != null)
                 {
                     Toast.MakeText(this, "Email already associated with an account.", ToastLength.Short).Show();
@@ -134,21 +136,19 @@ namespace Recommendr.Activities
                 }
 
                 //Add User to Database
-                tbl.Username = txtUsername.Text;
-                tbl.Password = txtPassword.Text;
-                tbl.Email = txtEmail.Text;
-                tbl.Membersince = DateTime.Now;
-                tbl.RecommendationNum = 0;
-                tbl.NoOfFollowers = 0;
-                db.Insert(tbl);
+                tbl.username = txtUsername.Text;
+                tbl.password = txtPassword.Text;
+                tbl.email = txtEmail.Text;
+                tbl.noOfFollowers = 0;
+                tbl.noOfFollowing = 0;
+                tbl.membersince = DateTime.Now;
+                //tbl.myRecommendations = new List<Recommendation>();
+                //tbl.toDo = new List<Recommendation>();
+                //tbl.followers = new List<LoginTable>();
+                //tbl.following = new List<LoginTable>();
+                
 
-                //Create new user
-                User newUser = new User();
-                newUser.Username = txtUsername.Text;
-                newUser.Password = txtPassword.Text;
-                newUser.Email = txtEmail.Text;
-                newUser.Membersince = DateTime.Now;
-                newUser.RecommendationNum = 0;
+                db.Insert(tbl);
 
                 Toast.MakeText(this, "User Added Successfully...,", ToastLength.Short).Show();
                 StartActivity(typeof(LoginActivity));

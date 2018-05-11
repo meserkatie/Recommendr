@@ -106,7 +106,7 @@ namespace Recommendr.Activities
         private void BtnFind_Click(object sender, EventArgs e)
         {
             searchedUsers = (from x in PopulateListView()
-                                        where (x.username).ToLower().Contains(txtFindUsers.Text.ToLower())
+                                        where (x.username).ToLower().Contains(txtFindUsers.Text.ToLower()) && !(x.username).Equals(currentUser.username)
                                         select x).ToList<LoginTable>();
 
             MyListViewAdapter adapter = new MyListViewAdapter(this, Resource.Layout.ListView_FindUsers, searchedUsers, currentUser);

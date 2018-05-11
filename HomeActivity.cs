@@ -35,6 +35,42 @@ namespace Recommendr.Activities
         Button btnApply;
         ListView lvFeed;
         LoginTable currentUser = new LoginTable();
+        bool books = true;
+        bool movies = true;
+        bool shows = true;
+        bool music = true;
+        List<Recommendation> filteredRecom = new List<Recommendation>();
+
+        //public void ckb_OnClick(View v)
+        //{
+        //    switch (v.Id)
+        //    {
+        //        case Resource.Id.cbBooks:
+        //            if (books == true)
+        //                books = false;
+        //            else
+        //                books = true;
+        //            break;
+        //        case Resource.Id.cbMovies:
+        //            if (movies == true)
+        //                movies = false;
+        //            else
+        //                movies = true;
+        //            break;
+        //        case Resource.Id.cbMusic:
+        //            if (music == true)
+        //                music = false;
+        //            else
+        //                music = true;
+        //            break;
+        //        case Resource.Id.cbTV:
+        //            if (shows == true)
+        //                shows = false;
+        //            else
+        //                shows = true;
+        //            break;
+        //    }
+        //}
 
         protected override void OnCreate(Bundle savedInstanceState)
         {
@@ -109,12 +145,73 @@ namespace Recommendr.Activities
             btnHome.Click += BtnHome_Click;
             btnLogout.Click += BtnLogout_Click;
             btnProfile.Click += BtnProfile_Click;
-            btnApply.Click += BtnApply_Click;
+           // btnApply.Click += BtnApply_Click;
         }
+
 
         private void BtnApply_Click(object sender, EventArgs e)
         {
-            throw new NotImplementedException();
+            //filteredRecom.Clear();
+            //filteredRecom = currentUser.myRecommendations;
+
+            //Recommendation temp = new Recommendation();
+
+            //if(books && music && movies && shows)
+            //{
+            //    RecommendationAdapter adapter = new RecommendationAdapter(this, Resource.Layout.ListView_Recommendation, currentUser.myRecommendations);
+            //    lvFeed.Adapter = adapter;
+            //    return;
+            //}
+            
+            //if(books == false && filteredRecom.Count != 0)
+            //{
+            //    for(int i = filteredRecom.Count - 1; i >= 0; i--)
+            //    {
+            //        temp = filteredRecom.ElementAt(i);
+            //        if (temp.recommendationType == "Book")
+            //            filteredRecom.Remove(temp);
+            //    }
+            //}
+
+            //if (music == false && filteredRecom.Count != 0)
+            //{
+            //    for (int i = filteredRecom.Count - 1; i >= 0; i--)
+            //    {
+            //        temp = filteredRecom.ElementAt(i);
+            //        if (temp.recommendationType == "Music")
+            //            filteredRecom.Remove(temp);
+            //    }
+            //}
+
+            //if (shows == false && filteredRecom.Count != 0)
+            //{
+            //    for (int i = filteredRecom.Count - 1; i >= 0; i--)
+            //    {
+            //        temp = filteredRecom.ElementAt(i);
+            //        if (temp.recommendationType == "TV Show")
+            //            filteredRecom.Remove(temp);
+            //    }
+            //}
+
+            //if (movies == false && filteredRecom.Count != 0)
+            //{
+            //    for (int i = filteredRecom.Count - 1; i >= 0; i--)
+            //    {
+            //        temp = filteredRecom.ElementAt(i);
+            //        if (temp.recommendationType == "Movie")
+            //            filteredRecom.Remove(temp);
+            //    }
+            //}
+
+            //RecommendationAdapter adapter2 = new RecommendationAdapter(this, Resource.Layout.ListView_Recommendation, filteredRecom);
+            //lvFeed.Adapter = adapter2;
+
+            //if (filteredRecom.Count == 0)
+            //{
+            //    Toast.MakeText(this, "No Results", ToastLength.Short).Show();
+            //}
+            //return;
+
         }
 
         private void BtnProfile_Click(object sender, EventArgs e)

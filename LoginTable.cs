@@ -80,6 +80,8 @@ namespace Recommendr
             db.CreateTable<Recommendation>();
 
             db.Insert(newRec);
+
+            myRecommendations.Add(newRec);
         }
 
         public int getRecommendationNum()

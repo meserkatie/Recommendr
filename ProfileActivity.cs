@@ -31,11 +31,13 @@ namespace Recommendr.Activities
         TextView txtRecNumInput;
         TextView txtEmpty;
         TextView txtFollowNum;
+        TextView txtFollowerNum;
         Button btnFollowers;
         Button btnFollowing;
         Button btnChangePW;
         ListView lvToDo;
         LoginTable currentUser;
+        int recomNum = 0;
 
         protected override void OnCreate(Bundle savedInstanceState)
         {
@@ -71,6 +73,7 @@ namespace Recommendr.Activities
             txtDateInput = FindViewById<TextView>(Resource.Id.txtDateInput);
             txtRecNumInput = FindViewById<TextView>(Resource.Id.txtRecNumInput);
             txtFollowNum = FindViewById<TextView>(Resource.Id.txtFollowNum);
+            txtFollowerNum = FindViewById<TextView>(Resource.Id.txtFollowerNum);
             btnFollowers = FindViewById<Button>(Resource.Id.btnFollowers);
             btnFollowing = FindViewById<Button>(Resource.Id.btnFollowing);
             btnChangePW = FindViewById<Button>(Resource.Id.btnChangePW);
@@ -80,18 +83,42 @@ namespace Recommendr.Activities
             txtUsernameInput.Text = currentUser.username;
             txtEmailInput.Text = currentUser.email;
             txtDateInput.Text = currentUser.membersince.ToShortDateString();
-            txtRecNumInput.Text = currentUser.getRecommendationNum().ToString();
+            
 
             string dpPath = Path.Combine(System.Environment.GetFolderPath(System.Environment.SpecialFolder.Personal), "user.db3"); //Call Database  
             var db = new SQLiteConnection(dpPath);
 
+            //-----------------Calculate Followers----------------------
             currentUser.followers = (from x in db.Table<Friendship>()
                                      where (x.friendFrom).Contains(currentUser.username)
                                      select x).ToList<Friendship>();
 
             currentUser.noOfFollowers = currentUser.followers.Count;
 
-            txtFollowNum.Text = currentUser.noOfFollowers.ToString();
+            txtFollowNum.Text += currentUser.noOfFollowers.ToString();
+
+            //----------------Calculate Following--------------------------
+            currentUser.following = (from x in db.Table<Friendship>()
+                                     where (x.friendTo).Contains(currentUser.username)
+                                     select x).ToList<Friendship>();
+
+            currentUser.noOfFollowing = currentUser.following.Count;
+
+            txtFollowerNum.Text += currentUser.noOfFollowing.ToString();
+
+            //----------------Calculate RecomNum--------------------
+            var data = db.Table<Recommendation>(); //Call Table  
+            recomNum = 0;
+            foreach (var item in data)
+            {
+                if (item.recAuthor.Equals(currentUser.username))
+                {
+                    recomNum++;
+                }
+            }
+            txtRecNumInput.Text = recomNum.ToString();
+
+            //  txtRecNumInput.Text = currentUser.getRecommendationNum().ToString();
 
             if (currentUser.GetToDo().Count == 0)
             {

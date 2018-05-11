@@ -20,11 +20,11 @@ namespace Recommendr.Activities
     public class PreviewActivity : Activity
     {
         ImageView IVlogo;
-        ImageButton btnProfile;
-        ImageButton btnAdd;
-        ImageButton btnHome;
-        ImageButton btnSearch;
-        ImageButton btnLogout;
+        //ImageButton btnProfile;
+        //ImageButton btnAdd;
+        //ImageButton btnHome;
+        //ImageButton btnSearch;
+        //ImageButton btnLogout;
         TextView txtUsernameInput;
         TextView txtEmailInput;
         TextView txtDateInput;
@@ -35,6 +35,7 @@ namespace Recommendr.Activities
         Button btnBack;
         LoginTable currentUser;
         LoginTable selectedUser;
+        int recomNum = 0;
         protected override void OnCreate(Bundle savedInstanceState)
         {
             base.OnCreate(savedInstanceState);
@@ -48,24 +49,25 @@ namespace Recommendr.Activities
             IVlogo = FindViewById<ImageView>(Resource.Id.IVlogo);
             IVlogo.SetImageResource(Resource.Drawable.logo);
 
-            btnProfile = FindViewById<ImageButton>(Resource.Id.btnProfile);
-            btnProfile.SetImageResource(Resource.Drawable.ic_action_person);
+            //btnProfile = FindViewById<ImageButton>(Resource.Id.btnProfile);
+            //btnProfile.SetImageResource(Resource.Drawable.ic_action_person);
 
-            btnAdd = FindViewById<ImageButton>(Resource.Id.btnAdd);
-            btnAdd.SetImageResource(Resource.Drawable.ic_action_add_box);
+            //btnAdd = FindViewById<ImageButton>(Resource.Id.btnAdd);
+            //btnAdd.SetImageResource(Resource.Drawable.ic_action_add_box);
 
-            btnHome = FindViewById<ImageButton>(Resource.Id.btnHome);
-            btnHome.SetImageResource(Resource.Drawable.ic_action_home);
+            //btnHome = FindViewById<ImageButton>(Resource.Id.btnHome);
+            //btnHome.SetImageResource(Resource.Drawable.ic_action_home);
 
-            btnSearch = FindViewById<ImageButton>(Resource.Id.btnSearch);
-            btnSearch.SetImageResource(Resource.Drawable.ic_action_search);
+            //btnSearch = FindViewById<ImageButton>(Resource.Id.btnSearch);
+            //btnSearch.SetImageResource(Resource.Drawable.ic_action_search);
 
-            btnLogout = FindViewById<ImageButton>(Resource.Id.btnLogout);
-            btnLogout.SetImageResource(Resource.Drawable.ic_action_exit_to_app);
+            //btnLogout = FindViewById<ImageButton>(Resource.Id.btnLogout);
+            //btnLogout.SetImageResource(Resource.Drawable.ic_action_exit_to_app);
 
             txtUsernameInput = FindViewById<TextView>(Resource.Id.txtUsernameInput);
             txtEmailInput = FindViewById<TextView>(Resource.Id.txtEmailInput);
             txtDateInput = FindViewById<TextView>(Resource.Id.txtDateInput);
+
             txtRecNumInput = FindViewById<TextView>(Resource.Id.txtRecNumInput);
             txtFollowNum = FindViewById<TextView>(Resource.Id.txtFollowNum);
             txtFollowerNum = FindViewById<TextView>(Resource.Id.txtFollowerNum);
@@ -75,10 +77,23 @@ namespace Recommendr.Activities
             txtUsernameInput.Text = selectedUser.username;
             txtEmailInput.Text = selectedUser.email;
             txtDateInput.Text = selectedUser.membersince.ToString();
-            txtRecNumInput.Text = selectedUser.getRecommendationNum().ToString();
-            txtFollowerNum.Text += selectedUser.noOfFollowers.ToString();
-            txtFollowNum.Text += selectedUser.noOfFollowing.ToString();
+            //txtRecNumInput.Text = selectedUser.getRecommendationNum().ToString();
+            txtFollowNum.Text += selectedUser.noOfFollowers.ToString();
+            txtFollowerNum.Text += selectedUser.noOfFollowing.ToString();
 
+            //----------------Calculate RecomNum--------------------
+            string dpPath = Path.Combine(System.Environment.GetFolderPath(System.Environment.SpecialFolder.Personal), "user.db3"); //Call Database  
+            var db = new SQLiteConnection(dpPath);
+            var data = db.Table<Recommendation>(); //Call Table  
+            recomNum = 0;
+            foreach (var item in data)
+            {
+                if (item.recAuthor.Equals(selectedUser.username))
+                {
+                    recomNum++;
+                }
+            }
+            txtRecNumInput.Text = recomNum.ToString();
 
             btnFollow.Click += BtnFollow_Click;
             btnBack.Click += BtnBack_Click;

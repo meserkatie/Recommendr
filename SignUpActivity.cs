@@ -117,6 +117,7 @@ namespace Recommendr.Activities
                 LoginTable tbl = new LoginTable();
 
                 db.CreateTable<Recommendation>();
+                db.CreateTable<Friendship>();
 
                 //Check to see if username is already in database
                 var data = db.Table<LoginTable>(); //Call Table  
@@ -150,7 +151,7 @@ namespace Recommendr.Activities
 
                 db.Insert(tbl);
 
-                Toast.MakeText(this, "User Added Successfully...,", ToastLength.Short).Show();
+                Toast.MakeText(this, "User Added Successfully...", ToastLength.Short).Show();
                 StartActivity(typeof(LoginActivity));
             }
             catch (Exception ex)

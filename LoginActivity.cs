@@ -110,9 +110,9 @@ namespace Recommendr.Activities
             var db = new SQLiteConnection(dpPath);
             output += "\n Database Created....";
 
-          //  db.DeleteAll<LoginTable>();
-          //  db.DeleteAll<Friendship>();
-         //   db.DeleteAll<Recommendation>();
+           // db.DeleteAll<LoginTable>();
+            //db.DeleteAll<Friendship>();
+           // db.DeleteAll<Recommendation>();
             return output;
         }
     }

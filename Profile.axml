@@ -124,12 +124,21 @@
             android:layout_marginLeft="5dp" />
     </LinearLayout>
     <TextView
-        android:text=""
+        android:text="Following: "
         android:textAppearance="?android:attr/textAppearanceMedium"
         android:textColor="@android:color/black"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/txtFollowNum"
+        android:layout_marginLeft="20dp"
+        android:textStyle="bold" />
+    <TextView
+        android:text="Followers: "
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:textColor="@android:color/black"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/txtFollowerNum"
         android:layout_marginLeft="20dp"
         android:textStyle="bold" />
     <LinearLayout

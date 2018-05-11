@@ -24,6 +24,7 @@ namespace Recommendr
         private string friendUsername;
         private LoginTable currentUser;
         private int curPos;
+        private int recomNum = 0;
 
         public MyListViewAdapter(Context context, int mRowLayout, List<LoginTable> items, LoginTable currentUser)
         {
@@ -64,10 +65,24 @@ namespace Recommendr
             friendUsername = txtRowUN.Text;
 
             TextView txtNoRec = row.FindViewById<TextView>(Resource.Id.txtRowNoRec);
-            txtNoRec.Text = users[position].getRecommendationNum().ToString();
+            // txtNoRec.Text = users[position].getRecommendationNum().ToString();
+
+            //----------------Calculate RecomNum--------------------
+            string dpPath = Path.Combine(System.Environment.GetFolderPath(System.Environment.SpecialFolder.Personal), "user.db3"); //Call Database  
+            var db = new SQLiteConnection(dpPath);
+            var data = db.Table<Recommendation>(); //Call Table  
+            recomNum = 0;
+            foreach (var item in data)
+            {
+                if (item.recAuthor.Equals(users[position].username))
+                {
+                    recomNum++;
+                }
+            }
+            txtNoRec.Text = recomNum.ToString();
 
             TextView txtRowFoll = row.FindViewById<TextView>(Resource.Id.txtRowFoll);
-            txtRowFoll.Text = users[position].noOfFollowers.ToString();
+            txtRowFoll.Text = users[position].noOfFollowing.ToString();
 
          //   Button btnFollow = row.FindViewById<Button>(Resource.Id.btnFollow);
 //btnFollow.Click += BtnFollow_Click;
